@@ -6,34 +6,42 @@ DB_LOG = 'DB_Log'
 
 class DB():
   def insert(data):
-    record = data
-    with open('DB_Log') as f:
-      lines = f.readlines()
-      # read file log to get lastest record id
-      new_id = str(int(lines[2].replace('LAST_ID=', '')) + 1)
-      record['id'] = new_id
-      # append to df
-      df = pd.read_csv(DB_NAME)
-      df_dictionary = pd.DataFrame([record])
-      new_df = pd.concat([df, df_dictionary], ignore_index=True)
-      # save csv
-      new_df.to_csv('DB_1.csv', index=False)
-      # update file log
-      wf = open(DB_LOG,"w")
-      wf.write(f'LAST_UPDATE={datetime.now().isoformat()}\nTOTAL_RECORD={new_id}\nLAST_ID={new_id}')
-      wf.close()
-      f.close()
+    df = pd.read_csv(DB_NAME)
+    data['id'] = str(int(df.iloc[-1]['id']) + 1)
+    df_dictionary = pd.DataFrame([data])
+    # append to df
+    new_df = pd.concat([df, df_dictionary], ignore_index=True)
+    # save csv
+    new_df.to_csv(DB_NAME, index=False)
 
-    return record
+    return data
 
-  def delete():
-    print('delete')
+  def delete_by_id(id):
+    df = pd.read_csv(DB_NAME)
+    df = df[df['id'] != id]
+    df.to_csv(DB_NAME, index=False)
+    return id
 
-  def get():
-    return pd.read_csv(DB_NAME).head().to_dict(orient='records')
- 
+  def get(limit, skip, query, sort):
+    df = pd.read_csv(DB_NAME)
+    total = len(df.index)
+    if sort['value'] == 'ascending':
+      df = df.sort_values(by=[sort['key']], ascending=[True])
+    
+    if sort['value'] == 'descending':
+      df = df.sort_values(by=[sort['key']], ascending=[False])
+    
+    if query:
+      df = df.query(query)
+
+    df = df.iloc[skip: skip + limit]
+    return {
+      "data": df.to_dict(orient='records'),
+      "total": total
+    }
+
   def get_by_id(user_id):
-    users = pd.read_csv(DB_NAME)
-    user = users[users['id'] == user_id]
+    df = pd.read_csv(DB_NAME)
+    user = df[df['id'] == user_id]
     return user.to_dict(orient='records')[0]
 
