@@ -1,6 +1,7 @@
 from flask_restful import Resource, abort, fields, marshal_with, reqparse
 from DB import DB
 from const import RESPONSE
+from urllib.parse import unquote
 
 user_field = {
 	"id": fields.Integer,
@@ -28,7 +29,12 @@ class UserList(Resource):
 			args['skip'] = 0
 		
 		if not args['sort']:
-			args['sort']= { 'key': 'id', 'value': 'ascending' }
+			args['sort'] = { 'key': 'id', 'value': 'ascending' }
+		else:
+			args['sort'] = unquote(args['sort'])
+		
+		if args['query']:
+			args['query'] = unquote(args['query'])
 
 		return DB.get(args['limit'], args['skip'], args['query'], args['sort'])
 

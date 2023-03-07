@@ -24,7 +24,6 @@ class DB():
 
   def get(limit, skip, query, sort):
     df = pd.read_csv(DB_NAME)
-    total = len(df.index)
     if sort['value'] == 'ascending':
       df = df.sort_values(by=[sort['key']], ascending=[True])
     
@@ -32,8 +31,9 @@ class DB():
       df = df.sort_values(by=[sort['key']], ascending=[False])
     
     if query:
-      df = df.query(query)
+      df.query(query, inplace = True)
 
+    total = len(df.index)
     df = df.iloc[skip: skip + limit]
     return {
       "data": df.to_dict(orient='records'),

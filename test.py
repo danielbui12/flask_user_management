@@ -1,5 +1,15 @@
-import pandas as pd
+# import pandas as pd
 
-df = pd.read_csv("DB.csv")
-# print(df.iloc[-1]['id'])
-print(df.iloc[2:301])
+# df = pd.read_csv("DB.csv")
+# # print(df.iloc[-1]['id'])
+# print(df.iloc[2:301])
+
+
+from urllib.parse import quote, unquote
+s = "id == 1"
+encoded_s = quote(s) # 'Hello%20world%21'
+print(encoded_s)
+
+decoded_s = unquote(s) # 'Hello world!'
+print(decoded_s)
+
