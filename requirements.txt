@@ -10,3 +10,5 @@ six==1.15.0
 Werkzeug==1.0.1
 pandas
 numpy
+flask-restful-swagger
+swagger-ui-py

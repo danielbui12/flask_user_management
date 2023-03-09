@@ -1,17 +1,20 @@
 from flask_restful import Resource, abort, fields, marshal_with, reqparse
+from flask_restful_swagger import swagger
 from DB import DB
 from const import RESPONSE
 from urllib.parse import unquote
 
-user_field = {
-	"id": fields.Integer,
-	"first_name": fields.String,
-	"last_name": fields.String,
-	"email": fields.String,
-	"gender": fields.String,
-	"ip_address": fields.String,
-	"phone_number": fields.String
-}
+@swagger.model
+class ResourceFields:
+	resource_fields = {
+		"id": fields.Integer,
+		"first_name": fields.String,
+		"last_name": fields.String,
+		"email": fields.String,
+		"gender": fields.String,
+		"ip_address": fields.String,
+		"phone_number": fields.String
+	}
 
 class UserList(Resource):
 	def get(self):
@@ -38,9 +41,8 @@ class UserList(Resource):
 
 		return DB.get(args['limit'], args['skip'], args['query'], args['sort'])
 
-
 class User(Resource):
-	@marshal_with(user_field)
+	@marshal_with(ResourceFields.resource_fields)
 	def get(self, user_id):
 		data = DB.get_by_id(user_id)
 		if not data:
@@ -49,7 +51,7 @@ class User(Resource):
 		return data
 
 class UserCreation(Resource):
-	@marshal_with(user_field)
+	@marshal_with(ResourceFields.resource_fields)
 	def post(self):
 		params_args = reqparse.RequestParser()
 		params_args.add_argument("first_name", type=str, help="first_name is required.", required=True)
