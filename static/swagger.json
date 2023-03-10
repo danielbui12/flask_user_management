@@ -1,0 +1,355 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "My API",
+    "description": "Test",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.11"
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "user",
+      "description": "All user API",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "paths": {
+    "/api/users/create": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Create user",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "createUser",
+        "requestBody": {
+          "description": "Created user object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUser"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUser"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/delete": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Delete user",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "deleteUser",
+        "requestBody": {
+          "description": "Delete user by id",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserId"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/UserId"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/UserId"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUserResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUserResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/{user-id}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Get user by user id",
+        "description": "get full detail user by user id",
+        "operationId": "getUserById",
+        "parameters": [
+          {
+            "name": "user-id",
+            "in": "path",
+            "description": "The id that needs to be fetched. ",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid user id supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/api/users": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Get user list",
+        "description": "get user list",
+        "operationId": "getUserList",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The limit of record that needs to be fetched. ",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 20
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Skip N record that needs to be fetched. ",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 0
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Hashed query string pandas",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "id%20%3D%3D%201"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Hashed order",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "%7B%20%27key%27%3A%20%27id%27%2C%20%27value%27%3A%20%27ascending%27%20%7D"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserList"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int",
+            "example": 1
+          },
+          "first_name": {
+            "type": "string",
+            "example": "example"
+          },
+          "last_name": {
+            "type": "string",
+            "example": "example"
+          },
+          "email": {
+            "type": "string",
+            "example": "john@email.com"
+          },
+          "gender": {
+            "type": "string",
+            "example": "Male"
+          },
+          "phone_number": {
+            "type": "string",
+            "example": "12345"
+          },
+          "ip_address": {
+            "type": "string",
+            "example": "112.122.22"
+          }
+        },
+        "xml": {
+          "name": "user"
+        }
+      },
+      "CreateUser": {
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "example": "example"
+          },
+          "last_name": {
+            "type": "string",
+            "example": "example"
+          },
+          "email": {
+            "type": "string",
+            "example": "john@email.com"
+          },
+          "gender": {
+            "type": "string",
+            "example": "Male"
+          },
+          "phone_number": {
+            "type": "string",
+            "example": "12345"
+          },
+          "ip_address": {
+            "type": "string",
+            "example": "112.122.22"
+          }
+        },
+        "xml": {
+          "name": "user"
+        }
+      },
+      "UserId": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int",
+            "example": 1
+          }
+        }
+      },
+      "DeleteUserResponse": {
+        "type": "integer",
+        "example": 1
+      },
+      "UserList": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int"
+          },
+          "data": {
+            "type": {
+              "$ref": "#/components/schemas/UserList"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@
 
 
 from urllib.parse import quote, unquote
-s = "id == 1"
+s = "{ 'key': 'id', 'value': 'ascending' }"
 encoded_s = quote(s) # 'Hello%20world%21'
 print(encoded_s)
 

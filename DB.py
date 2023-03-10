@@ -26,10 +26,10 @@ class DB():
     df = pd.read_csv(DB_NAME)
     if sort['value'] == 'ascending':
       df = df.sort_values(by=[sort['key']], ascending=[True])
-    
+
     if sort['value'] == 'descending':
       df = df.sort_values(by=[sort['key']], ascending=[False])
-    
+
     if query:
       df.query(query, inplace = True)
 
