@@ -19,3 +19,5 @@ or
 ```console
 python3 main.py
 ```
+
+3. Go to http://localhost:5000/api/docs to view API document
