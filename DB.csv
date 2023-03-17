@@ -1,11 +1,11 @@
-id,first_name,last_name,email,gender,ip_address,phone_number
-1,Elbert,Randleson,erandleson0@whitehouse.gov,Male,85.10.235.37,161-915-6530
-2,Cassi,McAuley,cmcauley1@slashdot.org,Female,93.146.245.236,743-605-9140
-3,Rosalie,Le Prevost,rleprevost2@hp.com,Female,17.120.194.129,952-273-4962
-4,Frank,Mumberson,fmumberson3@google.cn,Male,120.168.28.147,483-252-7889
-5,Barbra,Stilgo,bstilgo4@dagondesign.com,Female,23.123.70.2,706-949-8824
-6,Juliane,Arkley,jarkley5@patch.com,Female,171.205.155.172,324-236-8788
-7,Perle,Symonds,psymonds6@paypal.com,Female,251.182.205.174,339-134-2310
+id,first_name,last_name,email,gender,ip_address,phone_number,price
+1,Elbert,Randleson,erandleson0@whitehouse.gov,Male,85.10.235.37,161-915-6530,200000
+2,Cassi,McAuley,cmcauley1@slashdot.org,Female,93.146.245.236,743-605-9140,250000
+3,Rosalie,Le Prevost,rleprevost2@hp.com,Female,17.120.194.129,952-273-4962,133000
+4,Frank,Mumberson,fmumberson3@google.cn,Male,120.168.28.147,483-252-7889,165000
+5,Barbra,Stilgo,bstilgo4@dagondesign.com,Female,23.123.70.2,706-949-8824,245000
+6,Juliane,Arkley,jarkley5@patch.com,Female,171.205.155.172,324-236-8788,145040
+7,Perle,Symonds,psymonds6@paypal.com,Female,251.182.205.174,339-134-2310,1239000
 8,Nicko,Dikle,ndikle7@digg.com,Male,198.106.194.71,455-208-3554
 9,Burton,Spinks,bspinks8@blogspot.com,Male,47.212.153.206,781-606-1442
 10,Troy,Woodfine,twoodfine9@miitbeian.gov.cn,Polygender,151.118.122.142,987-787-4834
