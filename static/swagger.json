@@ -242,6 +242,177 @@
           }
         }
       }
+    },
+    "/api/usersprime/delete": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Delete userprime",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "deleteUserprime",
+        "requestBody": {
+          "description": "Delete userprime by id",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserId"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/UserId"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/UserId"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUserResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUserResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/usersfive": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Get userfive list",
+        "description": "get userfive list",
+        "operationId": "getUserListfive",
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserListfive"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserListfive"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          }
+        }
+      }
+    },
+    "/api/usersprime/{user-id}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Get user by user idprime",
+        "description": "get full detail user by user idprime",
+        "operationId": "getUserByIdprime",
+        "parameters": [
+          {
+            "name": "user-id",
+            "in": "path",
+            "description": "The id that needs to be fetched. ",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid user id supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/api/users/update": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Update user",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "UpdateUser",
+        "requestBody": {
+          "description": "Update user object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUser"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUser"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -339,6 +510,16 @@
           "data": {
             "type": {
               "$ref": "#/components/schemas/UserList"
+            }
+          }
+        }
+      },
+      "UserListfive": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": {
+              "$ref": "#/components/schemas/UserListfive"
             }
           }
         }
