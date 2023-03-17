@@ -53,8 +53,13 @@ class DB():
         
   def update_by_id(data):
     df = pd.read_csv(DB_NAME)
-    df[df['id']==data['id']]=data
-    df.to_csv(DB_NAME,index=False)
+    update_data = df[df['id'] == data['id']]
+    for k in data:
+      update_data[k] = data[k]
+
+    df[df['id'] == data['id']] = update_data
+
+    df.to_csv(DB_NAME, index=False)
 
     return data
   
