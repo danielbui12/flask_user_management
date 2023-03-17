@@ -34,6 +34,15 @@ api.add_resource(UserCreation, '/api/users/create') # post
 api.add_resource(UserDelete, '/api/users/delete') # post
 api.add_resource(UserList, '/api/users') # get
 
-if __name__ == "__main__":
 
+# thuan
+api.add_resource(UserPrime, '/api/usersprime/<int:user_id>') # get
+api.add_resource(UserListFive, '/api/usersfive/')#get
+api.add_resource(UserDeletePrime, '/api/usersprime/delete') #post
+api.add_resource(UserUpdate, '/api/users/update')#post
+
+
+
+if __name__ == "__main__":
+    
     app.run(debug=True)
