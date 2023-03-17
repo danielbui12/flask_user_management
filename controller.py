@@ -103,7 +103,7 @@ class UserUpdate(Resource):
 	@marshal_with(ResourceFields.resource_fields)
 	def post(self):
 		params_args = reqparse.RequestParser()
-		params_args.add_argument("id", type=int, help="id is required.", required=True)		
+		params_args.add_argument("id", type=int, help="id is required.", required=True)	
 		params_args.add_argument("first_name", type=str, help="first_name is required.", required=True)
 		params_args.add_argument("last_name", type=str, help="last_name is required.", required=True)
 		params_args.add_argument("email", type=str, help="email is required.", required=True)

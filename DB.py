@@ -3,15 +3,7 @@ from datetime import datetime
 
 DB_NAME = 'DB.csv'
 DB_LOG = 'DB_Log'
-def check_prime(n):
-	if n<2:
-		return False
-	if n==2:
-		return True
-	for i in range(2,n):
-		if (n%i)==0:
-			return False
-	return True
+
 class DB():
   def insert(data):
     df = pd.read_csv(DB_NAME)
@@ -56,14 +48,15 @@ class DB():
   def getfive():
     df = pd.read_csv(DB_NAME)
     df=df[df['id']%5==0]
-    # df.to_csv(DB_NAME,index=False)
+
     return df.to_dict('records')
         
   def update_by_id(data):
     df = pd.read_csv(DB_NAME)
-    df[df['id']==data['id']]=[data]
+    df[df['id']==data['id']]=data
     df.to_csv(DB_NAME,index=False)
 
     return data
+  
   
 
