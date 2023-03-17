@@ -1,5 +1,5 @@
 import pandas as pd
-from datetime import datetime
+import numpy as np
 
 DB_NAME = 'DB.csv'
 DB_LOG = 'DB_Log'
@@ -45,3 +45,53 @@ class DB():
     user = df[df['id'] == user_id]
     return user.to_dict(orient='records')[0]
 
+  def get_max_price(query):
+    df = pd.read_csv(DB_NAME)
+
+    if query:
+      df.query(query, inplace = True)
+
+    return np.array(df[['price']]).max()
+
+  def get_min_price(query):
+    df = pd.read_csv(DB_NAME)
+
+    if query:
+      df.query(query, inplace=True)
+
+    return np.array(df[['price']]).min()
+
+  def get_avg_price(query):
+    df = pd.read_csv(DB_NAME)
+
+    if query:
+      df.query(query, inplace=True)
+
+    price = np.array(df[['price']])
+    return np.average(price)
+
+  def get_total_price(query):
+    df = pd.read_csv(DB_NAME)
+
+    if query:
+      df.query(query, inplace=True)
+
+    return np.array(df[['price']]).sum()
+
+  def get_median_price(query, ):
+    df = pd.read_csv(DB_NAME)
+
+    if query:
+      df.query(query, inplace=True)
+
+    price = np.array(df[['price']])
+    return np.median(price)
+
+  def get_quantile_price(query, quantile):
+    df = pd.read_csv(DB_NAME)
+
+    if query:
+      df.query(query, inplace=True)
+
+    price = np.array(df[['price']])
+    return np.quantile(price, quantile)

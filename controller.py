@@ -67,5 +67,62 @@ class UserDelete(Resource):
 		params_args = reqparse.RequestParser()
 		params_args.add_argument("id", type=int, help="id is required.", required=True)
 		args = params_args.parse_args()
-		print(args["id"])
 		return DB.delete_by_id(args["id"])
+
+
+class UserPriceMax(Resource):
+	def get(self):
+		params_args = reqparse.RequestParser()
+		params_args.add_argument("query", type=str, required=False)
+		args = params_args.parse_args()
+
+		return DB.get_max_price(args['query'])
+
+
+class UserPriceMin(Resource):
+	def get(self):
+		params_args = reqparse.RequestParser()
+		params_args.add_argument("query", type=str, required=False)
+		args = params_args.parse_args()
+
+		return DB.get_min_price(args['query'])
+
+
+class UserPriceAvg(Resource):
+	def get(self):
+		params_args = reqparse.RequestParser()
+		params_args.add_argument("query", type=str, required=False)
+		args = params_args.parse_args()
+
+		return DB.get_avg_price(args['query'])
+
+
+class UserPriceTotal(Resource):
+	def get(self):
+		params_args = reqparse.RequestParser()
+		params_args.add_argument("query", type=str, required=False)
+		args = params_args.parse_args()
+
+		return DB.get_total_price(args['query'])
+
+
+class UserPriceMedian(Resource):
+	def get(self):
+		params_args = reqparse.RequestParser()
+		params_args.add_argument("query", type=str, required=False)
+		args = params_args.parse_args()
+
+		return DB.get_median_price(args['query'])
+
+
+class UserPriceQuantile(Resource):
+	def get(self):
+		params_args = reqparse.RequestParser()
+		params_args.add_argument("query", type=str, required=False)
+		params_args.add_argument("quantile", type=int, required=False)
+		args = params_args.parse_args()
+
+		if not args['quantile']:
+			args['quantile'] = 0.5
+
+		return DB.get_quantile_price(args['query'], args['quantile'])
