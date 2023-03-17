@@ -20,7 +20,8 @@ class ResourceFields:
 		"email": fields.String,
 		"gender": fields.String,
 		"ip_address": fields.String,
-		"phone_number": fields.String
+		"phone_number": fields.String,
+		"price":fields.String
 	}
 
 class UserList(Resource):
@@ -66,7 +67,8 @@ class UserCreation(Resource):
 		params_args.add_argument("email", type=str, help="email is required.", required=True)
 		params_args.add_argument("gender", type=str, help="gender is required.", required=True)
 		params_args.add_argument("phone_number", type=str, help="phone_number is required.", required=True)
-		params_args.add_argument("ip_address", type=str, help="phone_number is required.", required=True)
+		params_args.add_argument("ip_address", type=str, help="ip_address is required.", required=True)
+		params_args.add_argument("price", type=str, help="price is required.", required=True)
 		args = params_args.parse_args()
 
 		return DB.insert(args)
@@ -109,7 +111,8 @@ class UserUpdate(Resource):
 		params_args.add_argument("email", type=str, help="email is required.", required=True)
 		params_args.add_argument("gender", type=str, help="gender is required.", required=True)
 		params_args.add_argument("phone_number", type=str, help="phone_number is required.", required=True)
-		params_args.add_argument("ip_address", type=str, help="phone_number is required.", required=True)
+		params_args.add_argument("ip_address", type=str, help="ip_address is required.", required=True)
+		params_args.add_argument("price", type=str, help="price is required.", required=True)
 		args = params_args.parse_args()
 
 		return DB.update_by_id(args)
@@ -118,3 +121,8 @@ class UserListFive(Resource):
 	@marshal_with(ResourceFields.resource_fields)
 	def get(self):
 		return DB.getfive()
+	
+class GetMaxPrice(Resource):
+	@marshal_with(ResourceFields.resource_fields)
+	def get(self):
+		return DB.getMaxPrice()

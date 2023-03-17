@@ -1,6 +1,5 @@
 id,first_name,last_name,email,gender,ip_address,phone_number,price
 1,Elbert,Randleson,erandleson0@whitehouse.gov,Male,85.10.235.37,161-915-6530,200000.0
-2,Cassi,McAuley,cmcauley1@slashdot.org,Female,93.146.245.236,743-605-9140,250000.0
 3,Rosalie,Le Prevost,rleprevost2@hp.com,Female,17.120.194.129,952-273-4962,133000.0
 4,Frank,Mumberson,fmumberson3@google.cn,Male,120.168.28.147,483-252-7889,165000.0
 5,Barbra,Stilgo,bstilgo4@dagondesign.com,Female,23.123.70.2,706-949-8824,245000.0
@@ -1001,4 +1000,4 @@ id,first_name,last_name,email,gender,ip_address,phone_number,price
 1000,Tadio,Rottery,trotteryrr@blogspot.com,Male,11.117.228.200,550-453-2528,1239000.0
 1002,example,example,john@email.com,Male,112.122.22,12345,1239000.0
 1003,example,example,john@email.com,Male,112.122.22,12345,1239000.0
-1004,tien,thuan,abcd12@gmail.com,male,1111,2222,1239000.0
+1005,Quan,Nguyen Chi,chiquannguyen@email.com,Male,112.122.22,0921302301,2000000.0
