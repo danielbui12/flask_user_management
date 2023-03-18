@@ -30,7 +30,16 @@
         "description": "Find out more",
         "url": "http://swagger.io"
       }
+    },
+    {
+      "name": "price",
+      "description": "All price API",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
     }
+
   ],
   "paths": {
     "/api/users/create": {
