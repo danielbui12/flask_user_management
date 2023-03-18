@@ -1,5 +1,5 @@
 import pandas as pd
-from datetime import datetime
+import numpy as np
 
 DB_NAME = 'DB.csv'
 DB_LOG = 'DB_Log'
@@ -63,5 +63,3 @@ class DB():
 
     return data
   
-  
-
