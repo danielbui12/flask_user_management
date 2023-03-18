@@ -242,8 +242,271 @@
           }
         }
       }
+    },
+    "/api/price/max": {
+      "get": {
+        "tags": [
+          "price"
+        ],
+        "summary": "Get Price max",
+        "description": "get Price max",
+        "operationId": "getPricemax",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Hashed query string pandas",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "id%20%3D%3D%201"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          }
+        }
+      }
+    },
+    "/api/price/min": {
+      "get": {
+        "tags": [
+          "price"
+        ],
+        "summary": "Get Price min",
+        "description": "get Price min",
+        "operationId": "getPricemin",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Hashed query string pandas",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "id%20%3D%3D%201"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          }
+        }
+      }
+    },
+    "/api/price/avg": {
+      "get": {
+        "tags": [
+          "price"
+        ],
+        "summary": "Get Price avg",
+        "description": "get Price avg",
+        "operationId": "getPriceavg",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Hashed query string pandas",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "id%20%3D%3D%201"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          }
+        }
+      }
+    },
+    "/api/price/total": {
+      "get": {
+        "tags": [
+          "price"
+        ],
+        "summary": "Get Price total",
+        "description": "get Price total",
+        "operationId": "getPricetotal",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Hashed query string pandas",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "id%20%3D%3D%201"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          }
+        }
+      }
+    },
+    "/api/price/median": {
+      "get": {
+        "tags": [
+          "price"
+        ],
+        "summary": "Get Price median",
+        "description": "get Price median",
+        "operationId": "getPricemedian",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Hashed query string pandas",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "id%20%3D%3D%201"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          }
+        }
+      }
+    },
+    "/api/price/quantile": {
+      "get": {
+        "tags": [
+          "price"
+        ],
+        "summary": "Get Price quantile",
+        "description": "get Price quantile",
+        "operationId": "getPricequantile",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Hashed query string pandas",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "id%20%3D%3D%201"
+          },
+          {
+            "name": "quantile",
+            "in": "query",
+            "description": "Quantile . ",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 0.5
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Price"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          }
+        }
+      }
     }
   },
+  
   "components": {
     "schemas": {
       "User": {
@@ -342,6 +605,10 @@
             }
           }
         }
+      },
+      "Price": {
+        "type": "integer",
+        "example":1
       }
     },
     "securitySchemes": {
