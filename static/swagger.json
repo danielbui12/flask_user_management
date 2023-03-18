@@ -35,9 +35,7 @@
   "paths": {
     "/api/users/create": {
       "post": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "Create user",
         "description": "This can only be done by the logged in user.",
         "operationId": "createUser",
@@ -82,9 +80,7 @@
     },
     "/api/users/delete": {
       "post": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "Delete user",
         "description": "This can only be done by the logged in user.",
         "operationId": "deleteUser",
@@ -129,9 +125,7 @@
     },
     "/api/users/{user-id}": {
       "get": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "Get user by user id",
         "description": "get full detail user by user id",
         "operationId": "getUserById",
@@ -173,9 +167,7 @@
     },
     "/api/users": {
       "get": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "Get user list",
         "description": "get user list",
         "operationId": "getUserList",
@@ -243,11 +235,170 @@
         }
       }
     },
+    "/api/usersprime/delete": {
+      "post": {
+        "tags": ["user"],
+        "summary": "Delete user id prime",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "deleteUserprime",
+        "requestBody": {
+          "description": "Delete userprime by id",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserId"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/UserId"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/UserId"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUserResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteUserResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/usersfive": {
+      "get": {
+        "tags": ["user"],
+        "summary": "Get userfive list",
+        "description": "get userfive list",
+        "operationId": "getUserListfive",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserListfive"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserListfive"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          }
+        }
+      }
+    },
+    "/api/usersprime/{user-id}": {
+      "get": {
+        "tags": ["user"],
+        "summary": "Get user by user id prime",
+        "description": "get full detail user by user idprime",
+        "operationId": "getUserByIdprime",
+        "parameters": [
+          {
+            "name": "user-id",
+            "in": "path",
+            "description": "The id that needs to be fetched. ",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid user id supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/api/users/update": {
+      "post": {
+        "tags": ["user"],
+        "summary": "Update user",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "UpdateUser",
+        "requestBody": {
+          "description": "Update user object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUser"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUser"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/price/max": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Get Price max",
         "description": "get Price max",
         "operationId": "getPricemax",
@@ -287,9 +438,7 @@
     },
     "/api/price/min": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Get Price min",
         "description": "get Price min",
         "operationId": "getPricemin",
@@ -329,9 +478,7 @@
     },
     "/api/price/avg": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Get Price avg",
         "description": "get Price avg",
         "operationId": "getPriceavg",
@@ -371,9 +518,7 @@
     },
     "/api/price/total": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Get Price total",
         "description": "get Price total",
         "operationId": "getPricetotal",
@@ -413,9 +558,7 @@
     },
     "/api/price/median": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Get Price median",
         "description": "get Price median",
         "operationId": "getPricemedian",
@@ -455,9 +598,7 @@
     },
     "/api/price/quantile": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Get Price quantile",
         "description": "get Price quantile",
         "operationId": "getPricequantile",
@@ -506,7 +647,7 @@
       }
     }
   },
-  
+
   "components": {
     "schemas": {
       "User": {
@@ -608,7 +749,7 @@
       },
       "Price": {
         "type": "integer",
-        "example":1
+        "example": 1
       }
     },
     "securitySchemes": {
