@@ -1,7 +1,7 @@
 from flask_restful import Resource, abort, fields, marshal_with, reqparse
 from DB import DB
-from urllib.parse import unquote
 import ast
+
 def check_prime(n):
 	if n<2:
 		return False
@@ -20,7 +20,8 @@ class ResourceFields:
 		"email": fields.String,
 		"gender": fields.String,
 		"ip_address": fields.String,
-		"phone_number": fields.String
+		"phone_number": fields.String,
+		"price": fields.Integer
 	}
 
 class UserList(Resource):
@@ -41,10 +42,7 @@ class UserList(Resource):
 		if not args['sort']:
 			args['sort'] = { 'key': 'id', 'value': 'ascending' }
 		else:
-			args['sort'] = ast.literal_eval(unquote(args['sort']))
-
-		if args['query']:
-			args['query'] = unquote(args['query'])
+			args['sort'] = ast.literal_eval(args['sort'])
 
 		return DB.get(args['limit'], args['skip'], args['query'], args['sort'])
 
@@ -67,6 +65,7 @@ class UserCreation(Resource):
 		params_args.add_argument("gender", type=str, help="gender is required.", required=True)
 		params_args.add_argument("phone_number", type=str, help="phone_number is required.", required=True)
 		params_args.add_argument("ip_address", type=str, help="phone_number is required.", required=True)
+		params_args.add_argument("price", type=int, help="price is required.", required=True)
 		args = params_args.parse_args()
 
 		return DB.insert(args)
@@ -118,3 +117,59 @@ class UserListFive(Resource):
 	@marshal_with(ResourceFields.resource_fields)
 	def get(self):
 		return DB.getfive()
+
+class UserPriceMax(Resource):
+	def get(self):
+		params_args = reqparse.RequestParser()
+		params_args.add_argument("query", type=str, required=False)
+		args = params_args.parse_args()
+
+		return DB.get_max_price(args['query'])
+
+
+class UserPriceMin(Resource):
+	def get(self):
+		params_args = reqparse.RequestParser()
+		params_args.add_argument("query", type=str, required=False)
+		args = params_args.parse_args()
+
+		return DB.get_min_price(args['query'])
+
+
+class UserPriceAvg(Resource):
+	def get(self):
+		params_args = reqparse.RequestParser()
+		params_args.add_argument("query", type=str, required=False)
+		args = params_args.parse_args()
+
+		return DB.get_avg_price(args['query'])
+
+
+class UserPriceTotal(Resource):
+	def get(self):
+		params_args = reqparse.RequestParser()
+		params_args.add_argument("query", type=str, required=False)
+		args = params_args.parse_args()
+
+		return DB.get_total_price(args['query'])
+
+
+class UserPriceMedian(Resource):
+	def get(self):
+		params_args = reqparse.RequestParser()
+		params_args.add_argument("query", type=str, required=False)
+		args = params_args.parse_args()
+
+		return DB.update_by_id(args)
+
+class UserPriceQuantile(Resource):
+	def get(self):
+		params_args = reqparse.RequestParser()
+		params_args.add_argument("query", type=str, required=False)
+		params_args.add_argument("quantile", type=float, required=False)
+		args = params_args.parse_args()
+
+		if not args['quantile']:
+			args['quantile'] = 0.5
+
+		return DB.get_quantile_price(args['query'], args['quantile'])

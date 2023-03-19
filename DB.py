@@ -53,13 +53,60 @@ class DB():
         
   def update_by_id(data):
     df = pd.read_csv(DB_NAME)
-    update_data = df[df['id'] == data['id']]
-    for k in data:
-      update_data[k] = data[k]
-
-    df[df['id'] == data['id']] = update_data
-
-    df.to_csv(DB_NAME, index=False)
+    df[df['id']==data['id']]=data
+    df.to_csv(DB_NAME,index=False)
 
     return data
   
+  
+
+  def get_max_price(query):
+    df = pd.read_csv(DB_NAME)
+
+    if query:
+      df.query(query, inplace = True)
+
+    return np.array(df[['price']]).max()
+
+  def get_min_price(query):
+    df = pd.read_csv(DB_NAME)
+
+    if query:
+      df.query(query, inplace=True)
+
+    return np.array(df[['price']]).min()
+
+  def get_avg_price(query):
+    df = pd.read_csv(DB_NAME)
+
+    if query:
+      df.query(query, inplace=True)
+
+    price = np.array(df[['price']])
+    return np.average(price)
+
+  def get_total_price(query):
+    df = pd.read_csv(DB_NAME)
+
+    if query:
+      df.query(query, inplace=True)
+
+    return np.array(df[['price']]).sum()
+
+  def get_median_price(query, ):
+    df = pd.read_csv(DB_NAME)
+
+    if query:
+      df.query(query, inplace=True)
+
+    price = np.array(df[['price']])
+    return np.median(price)
+
+  def get_quantile_price(query, quantile):
+    df = pd.read_csv(DB_NAME)
+
+    if query:
+      df.query(query, inplace=True)
+
+    price = np.array(df[['price']])
+    return np.quantile(price, quantile)
