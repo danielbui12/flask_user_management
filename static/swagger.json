@@ -39,12 +39,13 @@
         "url": "http://swagger.io"
       }
     }
-
   ],
   "paths": {
     "/api/users/create": {
       "post": {
-        "tags": ["user"],
+        "tags": [
+          "user"
+        ],
         "summary": "Create user",
         "description": "This can only be done by the logged in user.",
         "operationId": "createUser",
@@ -89,7 +90,9 @@
     },
     "/api/users/delete": {
       "post": {
-        "tags": ["user"],
+        "tags": [
+          "user"
+        ],
         "summary": "Delete user",
         "description": "This can only be done by the logged in user.",
         "operationId": "deleteUser",
@@ -134,7 +137,9 @@
     },
     "/api/users/{user-id}": {
       "get": {
-        "tags": ["user"],
+        "tags": [
+          "user"
+        ],
         "summary": "Get user by user id",
         "description": "get full detail user by user id",
         "operationId": "getUserById",
@@ -176,7 +181,9 @@
     },
     "/api/users": {
       "get": {
-        "tags": ["user"],
+        "tags": [
+          "user"
+        ],
         "summary": "Get user list",
         "description": "get user list",
         "operationId": "getUserList",
@@ -204,22 +211,22 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Hashed query string pandas",
+            "description": "query string pandas",
             "required": false,
             "schema": {
               "type": "string"
             },
-            "example": "id%20%3D%3D%201"
+            "example": "id == 1"
           },
           {
             "name": "sort",
             "in": "query",
-            "description": "Hashed order",
+            "description": "order by",
             "required": false,
             "schema": {
               "type": "string"
             },
-            "example": "%7B%20%27key%27%3A%20%27id%27%2C%20%27value%27%3A%20%27ascending%27%20%7D"
+            "example": "{ 'key': 'id', 'value': 'ascending' }"
           }
         ],
         "responses": {
@@ -246,7 +253,9 @@
     },
     "/api/usersprime/delete": {
       "post": {
-        "tags": ["user"],
+        "tags": [
+          "user"
+        ],
         "summary": "Delete user id prime",
         "description": "This can only be done by the logged in user.",
         "operationId": "deleteUserprime",
@@ -291,7 +300,9 @@
     },
     "/api/usersfive": {
       "get": {
-        "tags": ["user"],
+        "tags": [
+          "user"
+        ],
         "summary": "Get userfive list",
         "description": "get userfive list",
         "operationId": "getUserListfive",
@@ -320,7 +331,9 @@
     },
     "/api/usersprime/{user-id}": {
       "get": {
-        "tags": ["user"],
+        "tags": [
+          "user"
+        ],
         "summary": "Get user by user id prime",
         "description": "get full detail user by user idprime",
         "operationId": "getUserByIdprime",
@@ -362,7 +375,9 @@
     },
     "/api/users/update": {
       "post": {
-        "tags": ["user"],
+        "tags": [
+          "user"
+        ],
         "summary": "Update user",
         "description": "This can only be done by the logged in user.",
         "operationId": "UpdateUser",
@@ -407,7 +422,9 @@
     },
     "/api/price/max": {
       "get": {
-        "tags": ["price"],
+        "tags": [
+          "price"
+        ],
         "summary": "Get Price max",
         "description": "get Price max",
         "operationId": "getPricemax",
@@ -415,12 +432,12 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Hashed query string pandas",
+            "description": "query string pandas",
             "required": false,
             "schema": {
               "type": "string"
             },
-            "example": "id%20%3D%3D%201"
+            "example": "id == 1"
           }
         ],
         "responses": {
@@ -447,7 +464,9 @@
     },
     "/api/price/min": {
       "get": {
-        "tags": ["price"],
+        "tags": [
+          "price"
+        ],
         "summary": "Get Price min",
         "description": "get Price min",
         "operationId": "getPricemin",
@@ -455,12 +474,12 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Hashed query string pandas",
+            "description": "query string pandas",
             "required": false,
             "schema": {
               "type": "string"
             },
-            "example": "id%20%3D%3D%201"
+            "example": "id == 1"
           }
         ],
         "responses": {
@@ -487,7 +506,9 @@
     },
     "/api/price/avg": {
       "get": {
-        "tags": ["price"],
+        "tags": [
+          "price"
+        ],
         "summary": "Get Price avg",
         "description": "get Price avg",
         "operationId": "getPriceavg",
@@ -495,12 +516,12 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Hashed query string pandas",
+            "description": "query string pandas",
             "required": false,
             "schema": {
               "type": "string"
             },
-            "example": "id%20%3D%3D%201"
+            "example": "id == 1"
           }
         ],
         "responses": {
@@ -527,7 +548,9 @@
     },
     "/api/price/total": {
       "get": {
-        "tags": ["price"],
+        "tags": [
+          "price"
+        ],
         "summary": "Get Price total",
         "description": "get Price total",
         "operationId": "getPricetotal",
@@ -535,12 +558,12 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Hashed query string pandas",
+            "description": "query string pandas",
             "required": false,
             "schema": {
               "type": "string"
             },
-            "example": "id%20%3D%3D%201"
+            "example": "id == 1"
           }
         ],
         "responses": {
@@ -567,7 +590,9 @@
     },
     "/api/price/median": {
       "get": {
-        "tags": ["price"],
+        "tags": [
+          "price"
+        ],
         "summary": "Get Price median",
         "description": "get Price median",
         "operationId": "getPricemedian",
@@ -575,12 +600,12 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Hashed query string pandas",
+            "description": "query string pandas",
             "required": false,
             "schema": {
               "type": "string"
             },
-            "example": "id%20%3D%3D%201"
+            "example": "id == 1"
           }
         ],
         "responses": {
@@ -607,7 +632,9 @@
     },
     "/api/price/quantile": {
       "get": {
-        "tags": ["price"],
+        "tags": [
+          "price"
+        ],
         "summary": "Get Price quantile",
         "description": "get Price quantile",
         "operationId": "getPricequantile",
@@ -615,20 +642,20 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Hashed query string pandas",
+            "description": "query string pandas",
             "required": false,
             "schema": {
               "type": "string"
             },
-            "example": "id%20%3D%3D%201"
+            "example": "id == 1"
           },
           {
             "name": "quantile",
             "in": "query",
-            "description": "Quantile . ",
+            "description": "Quantile",
             "required": false,
             "schema": {
-              "type": "integer"
+              "type": "float"
             },
             "example": 0.5
           }
@@ -656,7 +683,6 @@
       }
     }
   },
-
   "components": {
     "schemas": {
       "User": {
@@ -690,6 +716,10 @@
           "ip_address": {
             "type": "string",
             "example": "112.122.22"
+          },
+          "price": {
+            "type": "integer",
+            "example": "1239000"
           }
         },
         "xml": {
@@ -722,6 +752,10 @@
           "ip_address": {
             "type": "string",
             "example": "112.122.22"
+          },
+          "price": {
+            "type": "integer",
+            "example": "1239000"
           }
         },
         "xml": {
@@ -756,9 +790,9 @@
           }
         }
       },
-      "Price": {
-        "type": "integer",
-        "example": 1
+      "price": {
+        "type": "float",
+        "example": "123900.0"
       }
     },
     "securitySchemes": {

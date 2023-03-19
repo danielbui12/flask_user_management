@@ -34,21 +34,17 @@ api.add_resource(UserCreation, '/api/users/create') # post
 api.add_resource(UserDelete, '/api/users/delete') # post
 api.add_resource(UserList, '/api/users') # get
 
+api.add_resource(UserPrime, '/api/usersprime/<int:user_id>') # get
+api.add_resource(UserListFive, '/api/usersfive/')#get
+api.add_resource(UserDeletePrime, '/api/usersprime/delete') #post
+api.add_resource(UserUpdate, '/api/users/update')#post
+
 api.add_resource(UserPriceMax, '/api/price/max') # get
 api.add_resource(UserPriceMin, '/api/price/min') # get
 api.add_resource(UserPriceAvg, '/api/price/avg') # get
 api.add_resource(UserPriceTotal, '/api/price/total') # get
 api.add_resource(UserPriceMedian, '/api/price/median') # get
 api.add_resource(UserPriceQuantile, '/api/price/quantile') # get
-
-
-# thuan
-api.add_resource(UserPrime, '/api/usersprime/<int:user_id>') # get
-api.add_resource(UserListFive, '/api/usersfive/')#get
-api.add_resource(UserDeletePrime, '/api/usersprime/delete') #post
-api.add_resource(UserUpdate, '/api/users/update')#post
-
-
 
 if __name__ == "__main__":
     

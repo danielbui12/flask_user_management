@@ -1001,4 +1001,4 @@ id,first_name,last_name,email,gender,ip_address,phone_number,price
 1000,Tadio,Rottery,trotteryrr@blogspot.com,Male,11.117.228.200,550-453-2528,1239000.0
 1002,example,example,john@email.com,Male,112.122.22,12345,1239000.0
 1003,example,example,john@email.com,Male,112.122.22,12345,1239000.0
-1004,tien,thuan,abcd12@gmail.com,male,1111,2222,1239000.0
+1004,tien,thuan,abcd12@gmail.com,Male,1111,2222,1239000.0
