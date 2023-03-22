@@ -160,7 +160,7 @@ class UserPriceMedian(Resource):
 		params_args.add_argument("query", type=str, required=False)
 		args = params_args.parse_args()
 
-		return DB.update_by_id(args)
+		return DB.get_median_price(args['query'])
 
 class UserPriceQuantile(Resource):
 	def get(self):
