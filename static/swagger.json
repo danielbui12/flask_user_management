@@ -43,11 +43,9 @@
   "paths": {
     "/api/users/create": {
       "post": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "Create user",
-        "description": "This can only be done by the logged in user.",
+        "description": "Create new user",
         "operationId": "createUser",
         "requestBody": {
           "description": "Created user object",
@@ -90,11 +88,9 @@
     },
     "/api/users/delete": {
       "post": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "Delete user",
-        "description": "This can only be done by the logged in user.",
+        "description": "Delete user by id",
         "operationId": "deleteUser",
         "requestBody": {
           "description": "Delete user by id",
@@ -137,9 +133,7 @@
     },
     "/api/users/{user-id}": {
       "get": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "Get user by user id",
         "description": "get full detail user by user id",
         "operationId": "getUserById",
@@ -181,9 +175,7 @@
     },
     "/api/users": {
       "get": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "Get user list",
         "description": "get user list",
         "operationId": "getUserList",
@@ -253,11 +245,9 @@
     },
     "/api/usersprime/delete": {
       "post": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "Delete user id prime",
-        "description": "This can only be done by the logged in user.",
+        "description": "Delete user by id which is prime",
         "operationId": "deleteUserprime",
         "requestBody": {
           "description": "Delete userprime by id",
@@ -300,11 +290,9 @@
     },
     "/api/usersfive": {
       "get": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "Get userfive list",
-        "description": "get userfive list",
+        "description": "get a list of users whose id is divisible by 5",
         "operationId": "getUserListfive",
         "parameters": [],
         "responses": {
@@ -331,9 +319,7 @@
     },
     "/api/usersprime/{user-id}": {
       "get": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "Get user by user id prime",
         "description": "get full detail user by user idprime",
         "operationId": "getUserByIdprime",
@@ -375,11 +361,9 @@
     },
     "/api/users/update": {
       "post": {
-        "tags": [
-          "user"
-        ],
+        "tags": ["user"],
         "summary": "Update user",
-        "description": "This can only be done by the logged in user.",
+        "description": "Update user by id",
         "operationId": "UpdateUser",
         "requestBody": {
           "description": "Update user object",
@@ -422,9 +406,7 @@
     },
     "/api/price/max": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Get Price max",
         "description": "get Price max",
         "operationId": "getPricemax",
@@ -464,9 +446,7 @@
     },
     "/api/price/min": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Get Price min",
         "description": "get Price min",
         "operationId": "getPricemin",
@@ -506,9 +486,7 @@
     },
     "/api/price/avg": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Get Price avg",
         "description": "get Price avg",
         "operationId": "getPriceavg",
@@ -548,9 +526,7 @@
     },
     "/api/price/total": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Get Price total",
         "description": "get Price total",
         "operationId": "getPricetotal",
@@ -590,9 +566,7 @@
     },
     "/api/price/median": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Get Price median",
         "description": "get Price median",
         "operationId": "getPricemedian",
@@ -632,9 +606,7 @@
     },
     "/api/price/quantile": {
       "get": {
-        "tags": [
-          "price"
-        ],
+        "tags": ["price"],
         "summary": "Get Price quantile",
         "description": "get Price quantile",
         "operationId": "getPricequantile",
@@ -831,7 +803,21 @@
           }
         }
       },
-      "price": {
+      "UserListFive": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int"
+          },
+          "data": {
+            "type": {
+              "$ref": "#/components/schemas/UserList"
+            }
+          }
+        }
+      },
+      "Price": {
         "type": "float",
         "example": "123900.0"
       }
