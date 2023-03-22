@@ -109,6 +109,7 @@ class UserUpdate(Resource):
 		params_args.add_argument("gender", type=str, help="gender is required.", required=True)
 		params_args.add_argument("phone_number", type=str, help="phone_number is required.", required=True)
 		params_args.add_argument("ip_address", type=str, help="phone_number is required.", required=True)
+		params_args.add_argument("price", type=str, help="price is required.", required=True)
 		args = params_args.parse_args()
 
 		return DB.update_by_id(args)

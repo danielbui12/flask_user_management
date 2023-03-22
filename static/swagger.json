@@ -762,6 +762,47 @@
           "name": "user"
         }
       },
+      "UpdateUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int",
+            "example": 1
+          },
+          "first_name": {
+            "type": "string",
+            "example": "Elbert"
+          },
+          "last_name": {
+            "type": "string",
+            "example": "Einstein"
+          },
+          "email": {
+            "type": "string",
+            "example": "erandleson0@whitehouse.gov"
+          },
+          "gender": {
+            "type": "string",
+            "example": "Female"
+          },
+          "phone_number": {
+            "type": "string",
+            "example": "092.130.23"
+          },
+          "ip_address": {
+            "type": "string",
+            "example": "85.10.235.37"
+          },
+          "price": {
+            "type": "integer",
+            "example": "200000.0"
+          }
+        },
+        "xml": {
+          "name": "user"
+        }
+      },
       "UserId": {
         "type": "object",
         "properties": {
